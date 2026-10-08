@@ -11,7 +11,7 @@ export default function SoftSkills() {
   };
 
   return (
-    <section className="py-16 relative bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-50">
+    <section className="py-16 relative bg-slate-50 dark:bg-slate-950/60 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -21,13 +21,13 @@ export default function SoftSkills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2"
+            className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2"
           >
             <HeartHandshake className="w-3.5 h-3.5" />
             <span>Personal Attributes</span>
           </motion.div>
 
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
             Soft <span className="text-gradient-blue">Skills</span>
           </h3>
         </div>
@@ -44,15 +44,15 @@ export default function SoftSkills() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="p-6 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-200 shadow-lg text-center space-y-3 group"
+                className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-lg text-center space-y-3 group"
               >
-                <div className="p-3 rounded-2xl bg-blue-600/10 text-blue-400 w-fit mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <div className="p-3 rounded-2xl bg-blue-600/10 text-blue-600 dark:text-blue-400 w-fit mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   <IconComponent className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">
+                <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                   {skill.title}
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   {skill.description}
                 </p>
               </motion.div>

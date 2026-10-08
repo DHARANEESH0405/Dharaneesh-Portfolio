@@ -12,7 +12,6 @@ import {
   Mail, 
   FileText, 
   Sun, 
-  Moon, 
   X 
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
@@ -69,11 +68,9 @@ export default function CommandPalette() {
     const isDark = document.documentElement.classList.contains('dark');
     if (isDark) {
       document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
       localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
       localStorage.setItem('theme', 'dark');
     }
   };
@@ -81,11 +78,12 @@ export default function CommandPalette() {
   const triggerResumeDownload = () => {
     setIsOpen(false);
     const link = document.createElement('a');
-    link.href = '#resume';
-    const resumeSection = document.getElementById('resume');
-    if (resumeSection) {
-      resumeSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    link.href = '/Dharaneesh_M_Resume.pdf';
+    link.download = 'Dharaneesh_M_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const filteredItems = navigationItems.filter(item => 
@@ -102,29 +100,29 @@ export default function CommandPalette() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.15 }}
-            className="w-full max-w-xl rounded-2xl bg-slate-900 border border-slate-700/80 shadow-2xl shadow-blue-900/20 overflow-hidden"
+            className="w-full max-w-xl rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shadow-2xl overflow-hidden"
           >
             {/* Search Input Bar */}
-            <div className="relative flex items-center px-4 py-3 border-b border-slate-800">
+            <div className="relative flex items-center px-4 py-3 border-b border-slate-200 dark:border-slate-800">
               <Search className="w-5 h-5 text-slate-400 mr-3 shrink-0" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search section... (Press Esc to exit)"
-                className="w-full bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none"
+                className="w-full bg-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none"
                 autoFocus
               />
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Command List */}
-            <div className="max-h-80 overflow-y-auto p-2 divide-y divide-slate-800/50">
+            <div className="max-h-80 overflow-y-auto p-2 divide-y divide-slate-100 dark:divide-slate-800/50">
               {filteredItems.length === 0 ? (
                 <div className="p-6 text-center text-slate-400 text-sm">
                   No matching command found for "{query}"
@@ -136,15 +134,15 @@ export default function CommandPalette() {
                     <button
                       key={index}
                       onClick={item.action}
-                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-blue-600/20 hover:text-blue-300 text-slate-300 text-sm transition-colors duration-150 group"
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-blue-500/10 text-slate-800 dark:text-slate-300 text-sm transition-colors duration-150 group"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="p-1.5 rounded-lg bg-slate-800 text-slate-400 group-hover:bg-blue-500/30 group-hover:text-blue-400 transition-colors">
+                        <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                           <Icon className="w-4 h-4" />
                         </div>
                         <span className="font-medium">{item.name}</span>
                       </div>
-                      <span className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700/50 font-mono">
+                      <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700/50 font-mono">
                         {item.category}
                       </span>
                     </button>
@@ -154,14 +152,14 @@ export default function CommandPalette() {
             </div>
 
             {/* Footer Hint */}
-            <div className="px-4 py-2.5 bg-slate-950/60 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+            <div className="px-4 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center space-x-2">
                 <span>Navigate</span>
-                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono text-[10px]">Ctrl + K</kbd>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-mono text-[10px]">Ctrl + K</kbd>
               </div>
               <div className="flex items-center space-x-2">
                 <span>Select</span>
-                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono text-[10px]">Click / Enter</kbd>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-mono text-[10px]">Click / Enter</kbd>
               </div>
             </div>
           </motion.div>

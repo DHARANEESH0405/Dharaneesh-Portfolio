@@ -17,7 +17,6 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Trigger direct mailto link while showing confirmation alert
     const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
     
@@ -31,7 +30,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-slate-950 dark:bg-slate-950 light:bg-slate-100">
+    <section id="contact" className="py-24 relative bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -41,7 +40,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>Get In Touch</span>
@@ -52,12 +51,12 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight"
+            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight"
           >
             {"Let's Build"} <span className="text-gradient-blue">Something Together.</span>
           </motion.h2>
 
-          <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
             {"I'm always interested in learning, building practical solutions, and exploring opportunities in software development and emerging technologies."}
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full" />
@@ -73,10 +72,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="p-8 rounded-3xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-200 shadow-xl space-y-6">
+            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
               
-              <h3 className="text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center space-x-2">
-                <Sparkles className="w-5 h-5 text-blue-400" />
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center space-x-2">
+                <Sparkles className="w-5 h-5 text-blue-500" />
                 <span>Contact Details</span>
               </h3>
 
@@ -85,14 +84,14 @@ export default function Contact() {
                 {/* Email Card */}
                 <a
                   href={`mailto:${personalInfo.contact.email}`}
-                  className="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 hover:bg-slate-950 transition-all duration-200 group"
+                  className="flex items-center space-x-4 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all duration-200 group shadow-sm"
                 >
-                  <div className="p-3 rounded-xl bg-blue-600/15 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200 shrink-0">
+                  <div className="p-3 rounded-xl bg-blue-600/15 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200 shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="overflow-hidden">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">Email Address</span>
-                    <span className="text-xs sm:text-sm font-bold text-slate-200 dark:text-slate-200 light:text-slate-800 truncate block group-hover:text-blue-400">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">Email Address</span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-200 truncate block group-hover:text-blue-600 dark:group-hover:text-blue-400">
                       {personalInfo.contact.email}
                     </span>
                   </div>
@@ -101,27 +100,27 @@ export default function Contact() {
                 {/* Phone Card */}
                 <a
                   href={`tel:${personalInfo.contact.phone}`}
-                  className="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 hover:bg-slate-950 transition-all duration-200 group"
+                  className="flex items-center space-x-4 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all duration-200 group shadow-sm"
                 >
-                  <div className="p-3 rounded-xl bg-emerald-600/15 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-200 shrink-0">
+                  <div className="p-3 rounded-xl bg-emerald-600/15 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-200 shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">Phone Number</span>
-                    <span className="text-xs sm:text-sm font-bold text-slate-200 dark:text-slate-200 light:text-slate-800 block group-hover:text-emerald-400">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">Phone Number</span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-200 block group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
                       {personalInfo.contact.phone}
                     </span>
                   </div>
                 </a>
 
                 {/* Location Card */}
-                <div className="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
-                  <div className="p-3 rounded-xl bg-indigo-600/15 text-indigo-400 shrink-0">
+                <div className="flex items-center space-x-4 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm">
+                  <div className="p-3 rounded-xl bg-indigo-600/15 text-indigo-600 dark:text-indigo-400 shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">Location</span>
-                    <span className="text-xs sm:text-sm font-bold text-slate-200 dark:text-slate-200 light:text-slate-800">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">Location</span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-200">
                       Hosur / Tamil Nadu, India
                     </span>
                   </div>
@@ -130,8 +129,8 @@ export default function Contact() {
               </div>
 
               {/* Social Profiles Grid */}
-              <div className="pt-2 border-t border-slate-800/80 space-y-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
+              <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80 space-y-3">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                   Professional Profiles
                 </span>
                 <div className="grid grid-cols-2 gap-3">
@@ -139,7 +138,7 @@ export default function Contact() {
                     href={personalInfo.contact.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 text-xs font-semibold transition-all"
+                    className="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 text-xs font-semibold transition-all shadow-sm"
                   >
                     <GithubIcon className="w-4 h-4" />
                     <span>GitHub</span>
@@ -149,9 +148,9 @@ export default function Contact() {
                     href={personalInfo.contact.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 text-xs font-semibold transition-all"
+                    className="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 text-xs font-semibold transition-all shadow-sm"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-blue-400" />
+                    <LinkedinIcon className="w-4 h-4 text-blue-500" />
                     <span>LinkedIn</span>
                   </a>
                 </div>
@@ -170,14 +169,14 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="p-8 rounded-3xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-200 shadow-xl space-y-5 glow-border-hover"
+              className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-xl space-y-5 glow-border-hover"
             >
-              <h3 className="text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
                 Send a Direct Message
               </h3>
 
               {formStatus === 'success' && (
-                <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm flex items-start space-x-3">
+                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm flex items-start space-x-3">
                   <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
                   <div>
                     <strong className="block font-bold">Message Ready!</strong>
@@ -188,7 +187,7 @@ export default function Contact() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
                     Your Name *
                   </label>
                   <input
@@ -197,12 +196,12 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Enter your name"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
                     Your Email Address *
                   </label>
                   <input
@@ -211,12 +210,12 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="Enter your email address"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
                     Message *
                   </label>
                   <textarea
@@ -225,7 +224,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Write your message or inquiry here..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 resize-none shadow-sm"
                   />
                 </div>
               </div>
@@ -238,7 +237,7 @@ export default function Contact() {
                 <span>Send Message</span>
               </button>
 
-              <p className="text-[11px] text-center text-slate-500">
+              <p className="text-[11px] text-center text-slate-500 dark:text-slate-400">
                 Direct mailto fallback enabled. Opens default email app on submission.
               </p>
 

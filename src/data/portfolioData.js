@@ -141,7 +141,7 @@ export const experienceData = [
     company: "Cognizant",
     location: "Chennai",
     period: "2026",
-    badge: "Upcoming / Recent",
+    badge: "Recent",
     responsibilities: [
       "Completed hands-on training in Python programming and full-stack software development workflows.",
       "Developed mini projects demonstrating modern web engineering and component architectures.",

@@ -15,7 +15,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 relative bg-slate-950/80 dark:bg-slate-950/80 light:bg-slate-50">
+    <section id="projects" className="py-24 relative bg-slate-100/60 dark:bg-slate-950/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -25,7 +25,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4"
           >
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>Portfolio Showcase</span>
@@ -36,11 +36,11 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight"
+            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight"
           >
             Featured <span className="text-gradient-blue">Projects</span>
           </motion.h2>
-          <p className="text-slate-400 mt-3 text-sm sm:text-base">
+          <p className="text-slate-600 dark:text-slate-400 mt-3 text-sm sm:text-base">
             Detailed engineering projects built with Python, OpenCV, Machine Learning, and Full Stack technologies.
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full" />
@@ -57,17 +57,16 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="rounded-3xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white border border-slate-800/90 dark:border-slate-800/90 light:border-slate-200 shadow-2xl overflow-hidden glow-border-hover"
+                className="rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800/90 shadow-2xl overflow-hidden glow-border-hover"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-12 items-center`}>
                   
                   {/* Project Visual Representation Area */}
-                  <div className={`lg:col-span-6 p-6 sm:p-8 bg-slate-950/80 border-b lg:border-b-0 ${isEven ? 'lg:border-r lg:order-1' : 'lg:border-l lg:order-2'} border-slate-800/80`}>
+                  <div className={`lg:col-span-6 p-6 sm:p-8 bg-slate-900 text-slate-100 border-b lg:border-b-0 ${isEven ? 'lg:border-r lg:order-1' : 'lg:border-l lg:order-2'} border-slate-800`}>
                     
                     {project.visualType === 'security' ? (
                       /* PROJECT 01 VISUAL: ATM Biometric Security Illustration */
-                      <div className="relative rounded-2xl bg-slate-900 border border-slate-800 p-6 space-y-4 shadow-inner">
-                        {/* Status bar */}
+                      <div className="relative rounded-2xl bg-slate-950 border border-slate-800 p-6 space-y-4 shadow-inner">
                         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                           <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400">
                             <ShieldCheck className="w-4 h-4" />
@@ -78,10 +77,8 @@ export default function Projects() {
                           </span>
                         </div>
 
-                        {/* Interactive Authentication Steps Mock */}
                         <div className="space-y-3 font-mono text-xs">
-                          {/* Card Layer */}
-                          <div className="p-3 rounded-xl bg-slate-950 border border-blue-500/30 flex items-center justify-between">
+                          <div className="p-3 rounded-xl bg-slate-900 border border-blue-500/30 flex items-center justify-between">
                             <div className="flex items-center space-x-2.5">
                               <Lock className="w-4 h-4 text-blue-400" />
                               <span className="text-slate-200">Layer 1: RFID / Card Verification</span>
@@ -89,8 +86,7 @@ export default function Projects() {
                             <span className="text-[10px] text-emerald-400">PASSED</span>
                           </div>
 
-                          {/* Facial Recognition Layer */}
-                          <div className="p-3 rounded-xl bg-slate-950 border border-indigo-500/30 flex items-center justify-between relative overflow-hidden">
+                          <div className="p-3 rounded-xl bg-slate-900 border border-indigo-500/30 flex items-center justify-between">
                             <div className="flex items-center space-x-2.5">
                               <Cpu className="w-4 h-4 text-indigo-400" />
                               <span className="text-slate-200">Layer 2: OpenCV Face Match</span>
@@ -101,8 +97,7 @@ export default function Projects() {
                             </div>
                           </div>
 
-                          {/* Encrypted PIN Layer */}
-                          <div className="p-3 rounded-xl bg-slate-950 border border-violet-500/30 flex items-center justify-between">
+                          <div className="p-3 rounded-xl bg-slate-900 border border-violet-500/30 flex items-center justify-between">
                             <div className="flex items-center space-x-2.5">
                               <Terminal className="w-4 h-4 text-violet-400" />
                               <span className="text-slate-200">Layer 3: Encrypted PIN Auth</span>
@@ -111,16 +106,14 @@ export default function Projects() {
                           </div>
                         </div>
 
-                        {/* Transaction Ledger Log preview */}
-                        <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                        <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
                           <span>LOG: Transaction #8841-SECURE</span>
                           <span className="text-emerald-400">STATUS: APPROVED</span>
                         </div>
                       </div>
                     ) : (
                       /* PROJECT 02 VISUAL: Log Anomaly Detection Dashboard Illustration */
-                      <div className="relative rounded-2xl bg-slate-900 border border-slate-800 p-6 space-y-4 shadow-inner">
-                        {/* Status bar */}
+                      <div className="relative rounded-2xl bg-slate-950 border border-slate-800 p-6 space-y-4 shadow-inner">
                         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                           <div className="flex items-center space-x-2 text-xs font-mono text-cyan-400">
                             <Activity className="w-4 h-4" />
@@ -131,8 +124,7 @@ export default function Projects() {
                           </span>
                         </div>
 
-                        {/* Anomaly Dashboard Graph Mock */}
-                        <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                        <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                           <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
                             <span>System Load Diagnostics</span>
                             <span className="text-cyan-400">Normal Range (99.2%)</span>
@@ -151,8 +143,7 @@ export default function Projects() {
                           </div>
                         </div>
 
-                        {/* Log Stream Terminal Snippet */}
-                        <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] space-y-1">
+                        <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-[11px] space-y-1">
                           <div className="text-slate-400">[INFO] 22:10:04 GET /api/v1/health 200 OK</div>
                           <div className="text-rose-400 font-semibold">[ANOMALY DETECTED] High frequency spike at IP 192.168.1.42</div>
                           <div className="text-emerald-400">[ACTION] Automated alert emitted to Dashboard</div>
@@ -167,32 +158,32 @@ export default function Projects() {
                     
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest">
+                        <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
                           {project.number}
                         </span>
-                        <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-mono">
+                        <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-mono">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
                         {project.title}
                       </h3>
                     </div>
 
-                    <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                       {project.shortDescription}
                     </p>
 
                     {/* Key Features Quick Pills */}
                     <div className="space-y-2">
-                      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+                      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                         Key Deliverables:
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {project.keyFeatures.slice(0, 4).map((feature, fIdx) => (
-                          <div key={fIdx} className="flex items-center space-x-2 text-xs text-slate-300">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          <div key={fIdx} className="flex items-center space-x-2 text-xs text-slate-700 dark:text-slate-300">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                             <span className="truncate">{feature}</span>
                           </div>
                         ))}
@@ -204,7 +195,7 @@ export default function Projects() {
                       {project.technologies.map((tech, tIdx) => (
                         <span
                           key={tIdx}
-                          className="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-blue-300 border border-slate-700/80"
+                          className="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-300 border border-slate-200 dark:border-slate-700/80 shadow-sm"
                         >
                           {tech}
                         </span>
@@ -212,7 +203,7 @@ export default function Projects() {
                     </div>
 
                     {/* Buttons CTA */}
-                    <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-800/80">
+                    <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-200 dark:border-slate-800/80">
                       <button
                         onClick={() => openProjectDetails(project)}
                         className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5"
@@ -223,7 +214,7 @@ export default function Projects() {
 
                       <button
                         onClick={() => alert(`Placeholder: ${project.githubPlaceholder}. Replace with exact repository URL when available.`)}
-                        className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold text-xs sm:text-sm transition-all"
+                        className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-300 hover:border-blue-500 font-semibold text-xs sm:text-sm transition-all"
                       >
                         <GithubIcon className="w-4 h-4" />
                         <span>{project.githubPlaceholder}</span>
@@ -240,7 +231,6 @@ export default function Projects() {
 
       </div>
 
-      {/* Interactive Project Detail Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
